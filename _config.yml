@@ -5,7 +5,7 @@ title: yihuier Blog
 description: yihiuer的个人博客
 keywords: Yihuier,Blog,Java,Html,JavaScript
 author: Yihuier
-footerText: 'Copyright © 2021 闽ICP备2020023190号'
+footerText: Copyright © 2021 闽ICP备2020023190号
 
 # 这些不要动
 permalink: /posts/:year/:month/:day/:title.html
