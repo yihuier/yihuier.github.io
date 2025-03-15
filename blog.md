@@ -5,11 +5,6 @@ permalink: /blog/
 ---
 
 <div class="blog-container">
-    <div class="blog-header">
-        <h1>我的博客</h1>
-        <p>分享我的想法、经验和技术见解</p>
-    </div>
-    
     <div class="blog-posts">
         {% for post in site.posts %}
         <div class="blog-post">
