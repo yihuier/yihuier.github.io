@@ -160,28 +160,23 @@ body {
 }
 
 .line-number {
-    color: #aaa;
-    width: 30px;
+    color: #999;
+    width: 20px;
     text-align: right;
-    padding-right: 15px;
+    margin-right: 15px;
     user-select: none;
 }
 
-.code-content {
-    color: var(--text-color);
-}
-
 .code-keyword {
-    color: #5a7ad6;
-    font-weight: 500;
-}
-
-.code-string {
-    color: #e06c75;
+    color: #d73a49;
 }
 
 .code-function {
-    color: #61afef;
+    color: #6f42c1;
+}
+
+.code-string {
+    color: #032f62;
 }
 
 /* 背景形状 */
@@ -197,7 +192,7 @@ body {
     z-index: 1;
 }
 
-/* 博客列表页 */
+/* 博客容器 */
 .blog-container {
     max-width: 900px;
     margin: 60px auto;
@@ -280,7 +275,7 @@ body {
     text-decoration: underline;
 }
 
-/* 文章页 */
+/* 文章页面 */
 .post {
     max-width: 800px;
     margin: 60px auto;
