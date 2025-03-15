@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yihuier - 博客</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+    <style>
+        :root {
+            --primary-color: #6c8eef;
+            --secondary-color: #f5f7fa;
+            --text-color: #333;
+            --light-text: #666;
+            --background: #fff;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            width: 100%;
+            min-height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+        }
+        
+        /* 导航栏 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: var(--background);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--light-text);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+        
+        /* 博客内容 */
+        .blog-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .blog-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .blog-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .blog-header p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+        
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-post {
+            background-color: var(--background);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .blog-post-content {
+            padding: 20px;
+        }
+        
+        .blog-post-date {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+        
+        .blog-post-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .blog-post-excerpt {
+            color: var(--light-text);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            nav {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <div class="logo-icon">Y</div>
+                </a>
+            </div>
+            
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="blog.html" class="active">博客</a>
+            </nav>
+        </header>
+        
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1>我的博客</h1>
+                <p>分享我的想法、经验和技术见解</p>
+            </div>
+            
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <img src="https://via.placeholder.com/400x200/6c8eef/ffffff" alt="博客图片" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <div class="blog-post-date">2023年12月15日</div>
+                        <h3 class="blog-post-title">如何优化网站性能</h3>
+                        <p class="blog-post-excerpt">在当今快节奏的数字世界中，网站性能对用户体验至关重要。本文将分享一些优化网站加载速度和响应性的实用技巧。</p>
+                        <a href="blog-post1.html" class="read-more">阅读更多 →</a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="https://via.placeholder.com/400x200/5a7ad6/ffffff" alt="博客图片" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <div class="blog-post-date">2023年11月28日</div>
+                        <h3 class="blog-post-title">CSS Grid 布局详解</h3>
+                        <p class="blog-post-excerpt">CSS Grid 是一个强大的布局工具，可以帮助开发者创建复杂而灵活的网页布局。本文将深入探讨 Grid 布局的基本概念和高级技巧。</p>
+                        <a href="blog-post2.html" class="read-more">阅读更多 →</a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="https://via.placeholder.com/400x200/4a6ac6/ffffff" alt="博客图片" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <div class="blog-post-date">2023年10月10日</div>
+                        <h3 class="blog-post-title">JavaScript 异步编程</h3>
+                        <p class="blog-post-excerpt">异步编程是 JavaScript 中的重要概念。从回调函数到 Promise 再到 async/await，本文将帮助你理解 JavaScript 中的异步编程模式。</p>
+                        <a href="blog-post3.html" class="read-more">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
