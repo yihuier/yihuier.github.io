@@ -27,5 +27,26 @@
     </div>
     
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    
+    <!-- Typed.js 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- 打字特效脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('typed-name')) {
+                var typed = new Typed('#typed-name', {
+                    strings: ['Yihuier'],
+                    typeSpeed: 100,
+                    backSpeed: 50,
+                    backDelay: 2000,
+                    startDelay: 500,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+            }
+        });
+    </script>
 </body>
 </html> 

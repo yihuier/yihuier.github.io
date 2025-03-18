@@ -2,7 +2,7 @@
 ---
 
 :root {
-    --primary-color: #6c8eef;
+    --primary-color: #4361ee;
     --secondary-color: #f5f7fa;
     --text-color: #333;
     --light-text: #666;
@@ -113,25 +113,33 @@ body {
 
 /* 英雄区域 */
 .hero {
-    padding: 80px 40px;
+    padding: 80px 0;
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: calc(100vh - 80px);
-    width: 100%;
-}
-
-.intro {
-    max-width: 600px;
-    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    max-width: none;
     z-index: 10;
 }
 
+.intro {
+    max-width: 500px;
+    position: relative;
+    z-index: 10;
+    margin-left: 0;
+}
+
 .greeting {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: var(--light-text);
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: 600;
 }
 
 .name {
@@ -159,44 +167,60 @@ body {
     transform: translateY(-3px);
 }
 
-/* 代码卡片 */
+/* 代码卡片 - 白色背景样式 */
 .code-card {
     width: 450px;
-    background-color: #f8f9fa;
+    background-color: white; /* 改为白色背景 */
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: 25px;
+    padding: 30px;
     font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.8;
     z-index: 10;
     position: relative;
-    border: 1px solid rgba(0,0,0,0.05);
+    color: var(--text-color); /* 文本颜色改为深色 */
+    margin-right: 0;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* 添加细边框 */
 }
 
 .code-line {
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* 保持行间距 */
 }
 
 .line-number {
-    color: #999;
-    width: 20px;
+    color: rgba(0, 0, 0, 0.4); /* 行号颜色改为半透明黑色 */
+    width: 25px;
     text-align: right;
     margin-right: 15px;
     user-select: none;
 }
 
+/* 代码高亮颜色 - 适合浅色背景 */
 .code-keyword {
-    color: #d73a49;
+    color: #d73a49; /* 红色 */
 }
 
 .code-function {
-    color: #6f42c1;
+    color: #6f42c1; /* 紫色 */
 }
 
 .code-string {
-    color: #032f62;
+    color: #032f62; /* 深蓝色 */
+}
+
+.code-variable {
+    color: #005cc5; /* 蓝色 */
+}
+
+.code-operator {
+    color: #d73a49; /* 红色 */
+}
+
+.code-comment {
+    color: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
+    font-style: italic;
 }
 
 /* 背景形状 */
@@ -204,12 +228,20 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 60%;
     height: 100%;
-    background-color: var(--primary-color);
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-    opacity: 0.1;
+    background-color: #4361ee;
+    clip-path: polygon(100% 0, 20% 0, 100% 100%);
     z-index: 1;
+    left: auto;
+}
+
+/* 添加一个全宽容器包裹英雄区域 */
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--background);
 }
 
 /* 博客容器 */
@@ -397,14 +429,17 @@ body {
 /* 响应式设计 */
 @media (max-width: 1200px) {
     .hero {
+        width: 90%;
+        padding: 60px 0;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
         gap: 50px;
     }
     
-    .code-card {
-        width: 100%;
+    .intro, .code-card {
         max-width: 600px;
+        width: 100%;
     }
 }
 
@@ -419,6 +454,19 @@ body {
     
     .post-title {
         font-size: 2rem;
+    }
+    
+    .greeting {
+        font-size: 2.5rem;
+    }
+    
+    #typed-name, .typed-cursor {
+        font-size: 2.7rem;
+    }
+    
+    .bg-shape {
+        width: 70%;
+        clip-path: polygon(100% 0, 10% 0, 100% 100%);
     }
 }
 
@@ -436,7 +484,8 @@ body {
     }
     
     .hero {
-        padding: 40px 20px;
+        width: 95%;
+        padding: 40px 0;
     }
     
     .name {
@@ -450,6 +499,38 @@ body {
     .blog-posts {
         grid-template-columns: 1fr;
     }
+    
+    .greeting {
+        font-size: 2rem;
+    }
+    
+    #typed-name, .typed-cursor {
+        font-size: 2.2rem;
+    }
+    
+    .bg-shape {
+        width: 100%;
+        clip-path: polygon(100% 0, 0% 0, 100% 100%);
+    }
+    
+    .code-card {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .greeting {
+        font-size: 1.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #typed-name, .typed-cursor {
+        font-size: 2rem;
+        margin-left: 0;
+    }
 }
 
 /* 悬浮效果 */
@@ -461,4 +542,32 @@ body {
 /* 可选：图像旋转效果 */
 .logo-link:hover .logo-svg {
     transform: rotate(5deg);
+}
+
+/* 打字特效样式 */
+.typed-cursor {
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    color: var(--primary-color);
+    font-size: 3rem;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#typed-name {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-left: 10px;
+    font-size: 3.2rem;
+}
+
+.bio {
+    margin-bottom: 30px;
+    color: var(--light-text);
+    font-size: 1.1rem;
+    line-height: 1.7;
 } 
