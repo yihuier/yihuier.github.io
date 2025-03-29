@@ -14,7 +14,7 @@ jobs:
       - name: Notion2Github
         uses: younho9/notion2github@v1.1.0
         with:
-          database-url: 'https://www.notion.so/Docs-1c52ad52963580b3a812d1f4d496bac9'
+          database-url: 'https://www.notion.so/1c52ad52963580c08e8ddca0c5c00a21?v=1c52ad52963580d6b3a3000c96c94aef'
           docs-directory: Docs
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
