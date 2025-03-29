@@ -17,7 +17,6 @@
   category: "React"
   question_file: "react/performance-question.md"
   answer_file: "react/performance-answer.md"
-  image: "/assets/images/knowledge/react-performance.png"
   
 - title: "React 服务端渲染"
   category: "React"

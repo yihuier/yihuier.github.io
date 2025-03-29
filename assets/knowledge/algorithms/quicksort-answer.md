@@ -1,3 +1,5 @@
+![图片描述](https://cdn.jsdelivr.net/gh/yihuier/yihuier.github.io@latest/images/knowledge/test.png)
+
 快速排序是一种分治算法，它的基本思想是：
 
 1. 选择一个"基准"元素

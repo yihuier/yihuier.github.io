@@ -7,7 +7,6 @@
   category: "JavaScript"
   question_file: "javascript/closures-question.md"
   answer_file: "javascript/closures-answer.md"
-  image: "/assets/images/knowledge/closure.png"
   
 - title: "JavaScript Promise 和异步编程"
   category: "JavaScript"
@@ -23,4 +22,3 @@
   category: "JavaScript"
   question_file: "javascript/event-loop-question.md"
   answer_file: "javascript/event-loop-answer.md"
-  video: "https://example.com/videos/event-loop.mp4" 
