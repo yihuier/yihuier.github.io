@@ -375,6 +375,55 @@ header, footer, .site-header, .site-footer {
     padding: 0 2px;
     border-radius: 2px;
 }
+
+/* Markdown 内容样式 */
+#knowledge-question, #knowledge-answer {
+    line-height: 1.6;
+}
+
+#knowledge-question h1, #knowledge-answer h1,
+#knowledge-question h2, #knowledge-answer h2,
+#knowledge-question h3, #knowledge-answer h3,
+#knowledge-question h4, #knowledge-answer h4,
+#knowledge-question h5, #knowledge-answer h5,
+#knowledge-question h6, #knowledge-answer h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#knowledge-question p, #knowledge-answer p {
+    margin-bottom: 1em;
+}
+
+#knowledge-question ul, #knowledge-answer ul,
+#knowledge-question ol, #knowledge-answer ol {
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+
+#knowledge-question blockquote, #knowledge-answer blockquote {
+    border-left: 4px solid #e0e0e0;
+    padding-left: 1em;
+    margin-left: 0;
+    color: #666;
+}
+
+#knowledge-question table, #knowledge-answer table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+#knowledge-question th, #knowledge-answer th,
+#knowledge-question td, #knowledge-answer td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#knowledge-question th, #knowledge-answer th {
+    background-color: #f5f5f5;
+}
 </style>
 
 <div class="knowledge-container">
@@ -457,6 +506,13 @@ header, footer, .site-header, .site-footer {
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-html.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-ruby.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
@@ -500,9 +556,36 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // 高亮代码函数
     function highlightCode() {
-        document.querySelectorAll('pre code').forEach((block) => {
-            Prism.highlightElement(block);
-        });
+        // 使用 setTimeout 确保在 DOM 更新后执行
+        setTimeout(() => {
+            // 查找所有预格式化代码块
+            document.querySelectorAll('pre code').forEach((block) => {
+                // 如果代码块没有语言类，添加默认语言类
+                if (!block.className.includes('language-')) {
+                    const parent = block.parentNode;
+                    // 尝试从父元素的类名中提取语言
+                    const parentClasses = parent.className.split(' ');
+                    let language = '';
+                    
+                    for (const cls of parentClasses) {
+                        if (cls.startsWith('language-')) {
+                            language = cls;
+                            break;
+                        }
+                    }
+                    
+                    // 如果没有找到语言，使用默认语言
+                    if (!language) {
+                        language = 'language-javascript';
+                    }
+                    
+                    block.className = language;
+                }
+                
+                // 应用 Prism 高亮
+                Prism.highlightElement(block);
+            });
+        }, 0);
     }
     
     // 获取所有知识点数据
@@ -713,6 +796,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         questionElement.innerHTML = marked.parse(questionContent || '');
         answerElement.innerHTML = marked.parse(answerContent || '');
         
+        // 高亮代码
+        highlightCode();
+        
         // 隐藏答案
         answerContainer.style.display = 'none';
         showAnswerBtn.textContent = '显示答案';
@@ -732,9 +818,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         } else {
             videoContainer.style.display = 'none';
         }
-        
-        // 高亮代码
-        highlightCode();
         
         // 更新 URL 哈希
         window.location.hash = currentKnowledge.id;
@@ -820,5 +903,18 @@ document.addEventListener('DOMContentLoaded', async function() {
         // 初始加载一个随机知识点
         showRandomKnowledge();
     }
+
+    // 配置 marked.js
+    marked.setOptions({
+        highlight: function(code, lang) {
+            if (Prism.languages[lang]) {
+                return Prism.highlight(code, Prism.languages[lang], lang);
+            } else {
+                return code;
+            }
+        },
+        breaks: true,
+        gfm: true
+    });
 });
 </script> 
