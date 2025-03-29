@@ -424,6 +424,48 @@ header, footer, .site-header, .site-footer {
 #knowledge-question th, #knowledge-answer th {
     background-color: #f5f5f5;
 }
+
+/* 图片样式 */
+#knowledge-question img, #knowledge-answer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+    display: block;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* 大图片限制高度 */
+#knowledge-question img.large, #knowledge-answer img.large {
+    max-height: 500px;
+    object-fit: contain;
+}
+
+/* 中等大小图片 */
+#knowledge-question img.medium, #knowledge-answer img.medium {
+    max-height: 350px;
+    object-fit: contain;
+}
+
+/* 小图片 */
+#knowledge-question img.small, #knowledge-answer img.small {
+    max-height: 200px;
+    object-fit: contain;
+}
+
+/* 图片容器，用于居中显示 */
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* 图片说明文字 */
+.image-caption {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
 </style>
 
 <div class="knowledge-container">
@@ -799,6 +841,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         // 高亮代码
         highlightCode();
         
+        // 处理图片 URL
+        processImageUrls();
+        
         // 隐藏答案
         answerContainer.style.display = 'none';
         showAnswerBtn.textContent = '显示答案';
@@ -914,7 +959,46 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         },
         breaks: true,
-        gfm: true
+        gfm: true,
+        renderer: (function() {
+            const renderer = new marked.Renderer();
+            const baseImageUrl = 'https://cdn.jsdelivr.net/gh/yihuier/yihuier.github.io@latest';
+            
+            // 自定义图片渲染
+            renderer.image = function(href, title, text) {
+                // 如果 href 不是以 http 或 https 开头，则添加基础 URL
+                if (!href.startsWith('http://') && !href.startsWith('https://')) {
+                    href = `${baseImageUrl}${href.startsWith('/') ? '' : '/'}${href}`;
+                }
+                
+                return `<img src="${href}" alt="${text || ''}" title="${title || ''}" class="knowledge-image">`;
+            };
+            
+            return renderer;
+        })()
     });
+
+    // 处理图片 URL，添加图床基础 URL
+    function processImageUrls() {
+        const baseImageUrl = 'https://cdn.jsdelivr.net/gh/yihuier/yihuier.github.io@latest';
+        
+        // 查找所有图片元素
+        document.querySelectorAll('#knowledge-question img, #knowledge-answer img').forEach(img => {
+            const src = img.getAttribute('src');
+            
+            // 如果图片 URL 不是以 http 或 https 开头，则添加基础 URL
+            if (src && !src.startsWith('http://') && !src.startsWith('https://')) {
+                img.src = `${baseImageUrl}${src.startsWith('/') ? '' : '/'}${src}`;
+            }
+            
+            // 如果图片 URL 包含基础 URL 但有多余的斜杠，则修复
+            if (src && src.includes(baseImageUrl)) {
+                const fixedSrc = src.replace(`${baseImageUrl}//`, `${baseImageUrl}/`);
+                if (fixedSrc !== src) {
+                    img.src = fixedSrc;
+                }
+            }
+        });
+    }
 });
 </script> 
