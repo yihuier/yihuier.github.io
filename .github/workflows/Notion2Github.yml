@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - test
 jobs:
   auto-sync-from-notion-to-github:
     runs-on: ubuntu-latest
