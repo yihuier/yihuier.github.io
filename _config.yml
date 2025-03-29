@@ -7,7 +7,7 @@ author: Yihuier
 
 # 构建设置
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title/
+permalink: /blog/:year-:month-:day/:title/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
