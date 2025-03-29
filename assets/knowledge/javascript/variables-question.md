@@ -1,0 +1,1 @@
+解释 JavaScript 中 var、let 和 const 声明变量的区别，并提供示例说明它们的作用域和提升行为。 

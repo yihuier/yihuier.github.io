@@ -1,0 +1,26 @@
+- title: "JavaScript 变量声明的区别"
+  category: "JavaScript"
+  question_file: "javascript/variables-question.md"
+  answer_file: "javascript/variables-answer.md"
+  
+- title: "JavaScript 闭包详解"
+  category: "JavaScript"
+  question_file: "javascript/closures-question.md"
+  answer_file: "javascript/closures-answer.md"
+  image: "/assets/images/knowledge/closure.png"
+  
+- title: "JavaScript Promise 和异步编程"
+  category: "JavaScript"
+  question_file: "javascript/promises-question.md"
+  answer_file: "javascript/promises-answer.md"
+  
+- title: "JavaScript 原型链详解"
+  category: "JavaScript"
+  question_file: "javascript/prototype-question.md"
+  answer_file: "javascript/prototype-answer.md"
+  
+- title: "JavaScript 事件循环机制"
+  category: "JavaScript"
+  question_file: "javascript/event-loop-question.md"
+  answer_file: "javascript/event-loop-answer.md"
+  video: "https://example.com/videos/event-loop.mp4" 
