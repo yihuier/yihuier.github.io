@@ -1,0 +1,35 @@
+{
+  "category": "React",
+  "items": [
+    {
+      "id": "react-components",
+      "title": "React 组件基础",
+      "question_file": "react/components-question.md",
+      "answer_file": "react/components-answer.md"
+    },
+    {
+      "id": "react-state",
+      "title": "React 状态管理",
+      "question_file": "react/state-question.md",
+      "answer_file": "react/state-answer.md"
+    },
+    {
+      "id": "react-hooks",
+      "title": "React Hooks 详解",
+      "question_file": "react/hooks-question.md",
+      "answer_file": "react/hooks-answer.md"
+    },
+    {
+      "id": "react-performance",
+      "title": "React 性能优化",
+      "question_file": "react/performance-question.md",
+      "answer_file": "react/performance-answer.md"
+    },
+    {
+      "id": "react-ssr",
+      "title": "React 服务端渲染",
+      "question_file": "react/ssr-question.md",
+      "answer_file": "react/ssr-answer.md"
+    }
+  ]
+} 

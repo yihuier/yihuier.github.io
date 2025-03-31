@@ -22,3 +22,9 @@ navigation:
 # 社交媒体链接
 social:
   github: https://github.com/yihuier 
+
+# 添加到现有配置中
+include:
+  - assets
+  - data
+  - data/knowledge 

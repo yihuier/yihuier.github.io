@@ -1,0 +1,35 @@
+{
+  "category": "JavaScript",
+  "items": [
+    {
+      "id": "js-variables",
+      "title": "JavaScript 变量声明的区别",
+      "question_file": "javascript/variables-question.md",
+      "answer_file": "javascript/variables-answer.md"
+    },
+    {
+      "id": "js-closures",
+      "title": "JavaScript 闭包详解",
+      "question_file": "javascript/closures-question.md",
+      "answer_file": "javascript/closures-answer.md"
+    },
+    {
+      "id": "js-promises",
+      "title": "JavaScript Promise 和异步编程",
+      "question_file": "javascript/promises-question.md",
+      "answer_file": "javascript/promises-answer.md"
+    },
+    {
+      "id": "js-prototype",
+      "title": "JavaScript 原型链详解",
+      "question_file": "javascript/prototype-question.md",
+      "answer_file": "javascript/prototype-answer.md"
+    },
+    {
+      "id": "js-event-loop",
+      "title": "JavaScript 事件循环机制",
+      "question_file": "javascript/event-loop-question.md",
+      "answer_file": "javascript/event-loop-answer.md"
+    }
+  ]
+} 

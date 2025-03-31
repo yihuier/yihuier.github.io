@@ -1,0 +1,11 @@
+{
+  "category": "算法",
+  "items": [
+    {
+      "id": "algo-quicksort",
+      "title": "什么是快速排序算法？",
+      "question_file": "algorithms/quicksort-question.md",
+      "answer_file": "algorithms/quicksort-answer.md"
+    }
+  ]
+} 

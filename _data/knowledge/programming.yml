@@ -1,9 +1,0 @@
-- title: "JavaScript 中的闭包是什么？"
-  category: "JavaScript"
-  question_file: "javascript/closures-question.md"
-  answer_file: "javascript/closures-answer.md"
-  
-- title: "React 中的 useEffect Hook 有什么用途？"
-  category: "React"
-  question_file: "react/useeffect-question.md"
-  answer_file: "react/useeffect-answer.md"
