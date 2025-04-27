@@ -5,6 +5,7 @@ permalink: /blog/
 ---
 
 <div class="blog-container">
+    {% if site.posts.size > 0 %}
     <div class="blog-posts">
         {% for post in site.posts %}
         <div class="blog-post">
@@ -22,4 +23,14 @@ permalink: /blog/
         </div>
         {% endfor %}
     </div>
+    {% else %}
+    <div class="empty-blog-state">
+        <div class="empty-blog-icon">
+            <i class="fas fa-pencil-alt"></i>
+        </div>
+        <h2 class="empty-blog-title">暂无博客文章</h2>
+        <p class="empty-blog-message">博客内容正在创作中，敬请期待！</p>
+        <p class="empty-blog-submessage">请稍后再来查看，或者返回<a href="/">首页</a>浏览其他内容。</p>
+    </div>
+    {% endif %}
 </div>
